@@ -1,6 +1,5 @@
-import { ModeToggle } from "@/components/modeToggle";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
-
 
 export const metadata: Metadata = {
   title: "B4die",
@@ -14,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <nav><ModeToggle/></nav>
+      <Navbar />
       {children}
     </>
   );
