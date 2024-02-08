@@ -1,18 +1,26 @@
-
 const Navbar = () => {
   return (
-    <div>
+    <header className="w-full p-1 flex-col">
       <div>
-        <p>B4die</p>
+        
       </div>
+      <div>
+        <div>
+          <p>B4die</p>
+        </div>
 
-      <nav>
-        <ul>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>Experiencias</li>
+            <li>Ranking</li>
+            <li>Mapa</li>
+            <li>Contacto</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+};
 
-        </ul>
-      </nav>
-    </div>
-  )
-}
-
-export default Navbar
+export default Navbar;
