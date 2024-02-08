@@ -1,61 +1,66 @@
-import { ModeToggle } from "@/components/modeToggle";
+import { ModeToggle } from "@/components/ModeToggle";
 import Link from "next/link";
+import { DropdownProfile } from "./DropdownProfile";
+import { CommandSearch } from "./CommandSearch";
+import { MenuMobile } from "@/components/MenuMobile";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
     <header className="w-full flex-col">
-      <div className="w-full h-8 bg-yellow-300 text-black flex items-center justify-end space-x-4 ">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-search"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-          <path d="M21 21l-6 -6" />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-user-circle"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-          <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-          <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-        </svg>
-        <ModeToggle />
+      <div className="w-full h-8 bg-yellow-300 text-[#0D1117] flex items-center justify-between md:justify-end space-x-4 px-2">
+        <div className="h-full flex items-center justify-center md:hidden">
+          <MenuMobile />
+        </div>
+        <div className="h-full flex items-center justify-center gap-2">
+          <CommandSearch />
+          <DropdownProfile />
+          <ModeToggle />
+        </div>
       </div>
 
-      <div className="w-full h-16 bg-white text-black flex">
-          <div className="w-1/3 flex items-center justify-center">
-            <p>B4die</p>
-            {/* Imagen b4die, con link a la pagina principal? */}
-          </div>
+      <div className="w-full h-16 hidden bg-white text-dark/75 font-medium hover: md:flex justify-around items-center space-y-2">
+        <div className="flex items-center justify-center">
+          <Link href={"/"}>
+            <Image
+              src={"/logo.png"}
+              alt="Logo"
+              className="aspect-auto"
+              width={148}
+              height={75}
+            />
+          </Link>
+        </div>
 
-          <nav className="w-2/3 flex items-center">
-            <ul className="w-full flex justify-center">
-              <Link href="/" className="px-8">Home</Link>
-              <Link href="/experiencias" className="px-8">Experiencias</Link>
-              <Link href="/ranking" className="px-8">Ranking</Link>
-              <Link href="/mapa" className="px-8">Mapa</Link>
-              <Link href="/contacto" className="px-8">Contacto</Link>
-            </ul>
-          </nav>
+        <nav className="flex items-center justify-center">
+          <ul className="w-full flex justify-center items-center transition-opacity gap-6">
+            <li>
+              <Link href="/" className="hover:text-dark relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-dark after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/experiencias" className="hover:text-dark relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-dark after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+                Experiencias
+              </Link>
+            </li>
+            <li>
+              <Link href="/ranking" className="hover:text-dark relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-dark after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+                Ranking
+              </Link>
+            </li>
+            <li>
+              <Link href="/mapa" className="hover:text-dark relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-dark after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+                Mapa
+              </Link>
+            </li>
+            <li>
+              <Link href="/contacto" className="hover:text-dark relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-dark after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center">
+                Contacto
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
