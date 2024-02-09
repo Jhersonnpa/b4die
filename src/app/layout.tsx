@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`dark:bg-[#0D1117] ${roboto.className}`}>
+      <body className={`dark:bg-[#0D1117] w-full min-h-screen ${roboto.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
