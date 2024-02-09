@@ -16,6 +16,7 @@ import {
 import { AlignLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ImageMenuMobile from "@/components/ImageMenuMobile";
 
 export function MenuMobile() {
   return (
@@ -27,9 +28,18 @@ export function MenuMobile() {
       </SheetTrigger>
       <SheetContent side="left" className="dark:bg-dark overflow-y-auto">
         <SheetHeader>
-          <SheetTitle className="mx-auto"><Link href={'/'} onClick={()=>document.getElementById("close-menu-responsive")?.click()}><Image className="aspect-auto" width={640} height={360} src={'/logo.png'} alt="logo B4die"/></Link></SheetTitle>
+          <SheetTitle className="mx-auto">
+            <Link
+              href={"/"}
+              onClick={() =>
+                document.getElementById("close-menu-responsive")?.click()
+              }
+            >
+              <ImageMenuMobile />
+            </Link>
+          </SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when youre done.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">

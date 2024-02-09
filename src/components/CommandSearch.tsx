@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   Calculator,
   Calendar,
@@ -9,7 +9,7 @@ import {
   Settings,
   Smile,
   User,
-} from "lucide-react"
+} from "lucide-react";
 
 import {
   CommandDialog,
@@ -20,35 +20,38 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/components/ui/command"
-import { Button } from "./ui/button"
+} from "@/components/ui/command";
+import { Button } from "./ui/button";
 
 export function CommandSearch() {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setOpen((open) => !open)
+        e.preventDefault();
+        setOpen((open) => !open);
       }
-    }
+    };
 
-    document.addEventListener("keydown", down)
-    return () => document.removeEventListener("keydown", down)
-  }, [])
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
 
   const handleOnClick = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   return (
     <>
-      <Button variant="custom" size="custom" onClick={handleOnClick}><Search/></Button>
+      <Button variant="custom" size="custom" onClick={handleOnClick}>
+        <Search className="text-dark/80 hover:text-dark/40" />
+      </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Escribe qué estas buscando..." />
         <CommandList>
           <CommandEmpty>No se han encontrado resultados.</CommandEmpty>
+
           <CommandGroup heading="Sugerencias">
             <CommandItem>
               <Calendar className="mr-2 h-4 w-4" />
@@ -63,7 +66,9 @@ export function CommandSearch() {
               <span>Calculator</span>
             </CommandItem>
           </CommandGroup>
+
           <CommandSeparator />
+
           <CommandGroup heading="Ajustes">
             <CommandItem>
               <User className="mr-2 h-4 w-4" />
@@ -84,5 +89,5 @@ export function CommandSearch() {
         </CommandList>
       </CommandDialog>
     </>
-  )
+  );
 }

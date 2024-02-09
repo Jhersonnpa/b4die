@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 import {
   CreditCard,
@@ -7,9 +7,9 @@ import {
   Settings,
   CircleUserRound,
   Search,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,17 +23,19 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 export function DropdownProfile() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="custom" size="custom"><CircleUserRound/></Button>
+        <Button variant="custom" size="custom">
+          <CircleUserRound className="text-dark/80 hover:text-dark/40" />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 dark:bg-darkSecondary">
         <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
-        <DropdownMenuSeparator className="dark:bg-gray-700"/>
+        <DropdownMenuSeparator className="dark:bg-gray-700" />
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <CircleUserRound className="mr-2 h-4 w-4" />
@@ -47,7 +49,7 @@ export function DropdownProfile() {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Settings className="mr-2 h-4 w-4" />
-            <Link href={`/`}>Settings</Link>
+            <Link href={`/realizadas`}>Realizadas</Link>
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
@@ -56,7 +58,7 @@ export function DropdownProfile() {
             <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
-        <DropdownMenuSeparator className="dark:bg-gray-700"/>
+        <DropdownMenuSeparator className="dark:bg-gray-700" />
         <DropdownMenuItem>
           <LogOut className="mr-2 h-4 w-4" />
           <Link href={`/`}>Log out</Link>
@@ -64,5 +66,5 @@ export function DropdownProfile() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
