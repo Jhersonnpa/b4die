@@ -1,12 +1,11 @@
 import Link from "next/link";
 
 import {
-  CreditCard,
-  Keyboard,
   LogOut,
-  Settings,
   CircleUserRound,
-  Search,
+  CheckCircle2,
+  Bookmark,
+  HelpCircle,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -40,29 +39,24 @@ export function DropdownProfile() {
           <DropdownMenuItem>
             <CircleUserRound className="mr-2 h-4 w-4" />
             <Link href="/perfil">Jhersonnpa</Link>
-            <DropdownMenuShortcut>Ctrl+P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <CreditCard className="mr-2 h-4 w-4" />
+            <Bookmark className="mr-2 h-4 w-4" />
             <Link href={`/guardadas`}>Guardadas</Link>
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Settings className="mr-2 h-4 w-4" />
+            <CheckCircle2 className="mr-2 h-4 w-4" />
             <Link href={`/realizadas`}>Realizadas</Link>
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Keyboard className="mr-2 h-4 w-4" />
-            <Link href={`/`}>Keyboard shortcuts</Link>
-            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator className="dark:bg-gray-700" />
         <DropdownMenuItem>
+          <HelpCircle className="mr-2 h-4 w-4" />
+          <Link href={`/ayuda`}>Ayuda</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
           <LogOut className="mr-2 h-4 w-4" />
           <Link href={`/`}>Log out</Link>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
