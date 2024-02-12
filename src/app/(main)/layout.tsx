@@ -6,11 +6,7 @@ export const metadata: Metadata = {
   description: "Encuentra tu deporte favorito y explora tus límites.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
