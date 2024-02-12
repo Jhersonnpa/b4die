@@ -1,4 +1,4 @@
-import { ModeToggle } from "@/components/modeToggle";
+import { ModeToggle } from "@/components/ModeToggle";
 import Link from "next/link";
 import { DropdownProfile } from "@/components/DropdownProfile";
 import { CommandSearch } from "@/components/CommandSearch";
