@@ -76,7 +76,7 @@ const LoginForm = () => {
           <Button type="button" className="bg-darkSecondary"><TwitterIcon className="size-6 text-white" /></Button>
           <Button type="button" className="bg-darkSecondary"><AppleIcon className="size-6" /></Button>
         </div>
-        <p className="text-pretty">No eres un miembro? <Link className="text-yellowB4/80 hover:underline transition-all hover:text-yellowB4" href={'/auth/register'}>Regístrate ahora</Link></p>
+        <p className="text-pretty text-center">No eres un miembro? <Link className="text-yellowB4/80 hover:underline transition-all hover:text-yellowB4" href={'/auth/register'}>Regístrate ahora</Link></p>
       </form>
     </Form>
   );
