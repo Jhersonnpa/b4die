@@ -35,7 +35,7 @@ const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full md:w-10/12 p-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full md:w-3/6 p-4">
         <h1 className="text-center text-3xl">Inicia sesión</h1>
         <FormField
           control={form.control}
