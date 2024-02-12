@@ -56,8 +56,8 @@ const RegisterForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full md:w-3/6 py-8 h-full">
-        <h1 className="text-center text-3xl">Registrate</h1>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full sm:w-2/3 md:w-3/6  px-4 py-16 h-full">
+        <h1 className="text-center text-3xl md:text-4xl">Registro</h1>
         <FormField
           control={form.control}
           name="username"
@@ -78,7 +78,7 @@ const RegisterForm = () => {
             <FormItem>
               <div className="w-full flex justify-between"><FormLabel>Correo</FormLabel> <FormMessage className="place-self-end leading-none"/></div>
               <FormControl>
-                <Input placeholder="ejemplo@gmail.com" {...field} />
+                <Input type="email" placeholder="ejemplo@gmail.com" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -90,7 +90,7 @@ const RegisterForm = () => {
             <FormItem>
               <div className="w-full flex justify-between"><FormLabel>Contraseña</FormLabel> <FormMessage className="place-self-end leading-none"/></div>
               <FormControl>
-                <Input placeholder="*******" {...field} />
+                <Input type="password" placeholder="*******" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -102,7 +102,7 @@ const RegisterForm = () => {
             <FormItem>
               <div className="w-full flex justify-between"><FormLabel>Confirmar Contraseña</FormLabel> <FormMessage className="place-self-end leading-none">{passMatch}</FormMessage></div>
               <FormControl>
-                <Input placeholder="*******" {...field} />
+                <Input type="password" placeholder="*******" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -138,12 +138,12 @@ const RegisterForm = () => {
             <hr className="flex-grow border-dark dark:border-white"/>
         </div>
         <div className="w-full flex gap-3 justify-center">
-          <Button type="button" className="bg-darkSecondary"><InstagramIcon className="size-6" /></Button>
-          <Button type="button" className="bg-darkSecondary"><GoogleIcon className="size-6" /></Button>
-          <Button type="button" className="bg-darkSecondary"><TwitterIcon className="size-6 text-white" /></Button>
-          <Button type="button" className="bg-darkSecondary"><AppleIcon className="size-6" /></Button>
+          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><InstagramIcon className="size-6" /></Button>
+          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><GoogleIcon className="size-6" /></Button>
+          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><TwitterIcon className="size-6 text-white" /></Button>
+          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><AppleIcon className="size-6" /></Button>
         </div>
-        <p className="text-pretty text-center">Ya eres miembro? <Link className="text-yellowB4/80 hover:underline transition-all hover:text-yellowB4" href={'/auth/login'}>Inicia sesión</Link></p>
+        <p className="text-pretty text-center">Ya eres miembro? <Link className="text-dark dark:text-white dark:hover:text-yellowB4/80 underline transition-all hover:text-yellowB4" href={'/auth/login'}>Inicia sesión</Link></p>
       </form>
     </Form>
   );

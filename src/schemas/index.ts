@@ -22,25 +22,25 @@ interface RegisterData {
 
 export const RegisterSchema = z.object({
   username: z.string().min(1, {
-    message: "Nombre de usuario requerido.",
+    message: "Requerido.",
   }),
   email: z.string().email({
-    message: "El formato del correo es incorrecto",
+    message: "Formato del correo invalido.",
   }),
   password: z.string().min(8, {
-    message: "La contraseña debe ser como mínimo de 8 caracteres.",
+    message: "mínimo 8 caracteres.",
   }).max(16, {
-    message: "La contraseña debe ser como máximo de 16 caracteres.",
+    message: "máximo 16 caracteres.",
   }),
   confirmPassword: z.string().min(8, {
-    message: "La contraseña debe ser como mínimo de 8 caracteres.",
+    message: "mínimo 8 caracteres.",
   }).max(16, {
-    message: "La contraseña debe ser como máximo de 16 caracteres.",
+    message: "máximo 16 caracteres.",
   }),
   name: z.string().min(1, {
-    message: "El nombre es requerido.",
+    message: "Nombre requerido.",
   }),
   surname: z.string().min(1, {
-    message: "El apellido es requerido",
+    message: "Apellido requerido",
   }),
 })

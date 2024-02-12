@@ -8,7 +8,7 @@ const RegisterPage = () => {
       </div>
 
       <div className="w-full bg-[url('/register-banner.webp')] md:bg-none md:w-1/2 bg-center bg-no-repeat bg-cover">
-        <div className="h-full backdrop-filter backdrop-blur-sm bg-opacity-10 w-full flex justify-center items-center dark:bg-darkSecondary/30 bg-white/60">
+        <div className="h-full backdrop-filter backdrop-blur-sm bg-opacity-10 w-full flex justify-center items-center dark:bg-darkSecondary/70 bg-white/60">
           <RegisterForm />
         </div>
       </div>
