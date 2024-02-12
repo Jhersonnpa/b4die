@@ -22,7 +22,7 @@ import GoogleIcon from "./socialIcons/GoogleIcon";
 import TwitterIcon from "./socialIcons/TwitterIcon";
 import AppleIcon from "./socialIcons/AppleIcon";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -82,4 +82,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

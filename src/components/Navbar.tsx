@@ -1,4 +1,4 @@
-import { ModeToggle } from "@/components/ModeToggle";
+import { ModeToggle } from "@/components/modeToggle";
 import Link from "next/link";
 import { DropdownProfile } from "@/components/DropdownProfile";
 import { CommandSearch } from "@/components/CommandSearch";
@@ -8,7 +8,7 @@ import Image from "next/image";
 const Navbar = () => {
   return (
     <header className="w-full flex-col">
-      <div className="w-full h-8 bg-yellowB4 text-dark flex items-center justify-between md:justify-end space-x-4 px-2">
+      <div className="w-full h-[4vh] bg-yellowB4 text-dark flex items-center justify-between md:justify-end space-x-4 px-2">
         <div className="h-full flex items-center justify-center md:hidden">
           <MenuMobile />
         </div>
@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="w-full h-16 hidden bg-white text-dark/75 font-medium hover: md:flex justify-around items-center space-y-2">
+      <div className="w-full h-[8vh] hidden bg-white text-dark/75 font-medium hover: md:flex justify-around items-center space-y-2">
         <div className="flex items-center justify-center">
           <Link href={"/"}>
             <Image
