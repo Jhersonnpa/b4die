@@ -1,7 +1,7 @@
+"use client"
 import Link from "next/link";
 
 import {
-  LogOut,
   CircleUserRound,
   CheckCircle2,
   Bookmark,
@@ -23,8 +23,19 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import LogoutButton from "@/components/LogoutButton";
+import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 export function DropdownProfile() {
+  const user = useCurrentUser();
+
+  if (user) {
+    console.log(typeof user);
+    console.log(user);
+  } else {
+    console.log("no existe usuario");
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -55,8 +66,7 @@ export function DropdownProfile() {
           <Link href={`/ayuda`}>Ayuda</Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          <Link href={`/`}>Log out</Link>
+          <LogoutButton />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

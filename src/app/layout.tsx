@@ -1,4 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
@@ -16,23 +18,28 @@ export const metadata: Metadata = {
   description: "Encuentra tu deporte favorito y explora tus límites.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth()
   return (
-    <html lang="en">
-      <body className={`dark:bg-[#0D1117] w-full min-h-screen ${roboto.className}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <SessionProvider session={session}>
+      <html lang="en">
+        <body
+          className={`dark:bg-[#0D1117] w-full min-h-screen ${roboto.className}`}
         >
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </SessionProvider>
   );
 }

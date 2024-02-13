@@ -15,6 +15,7 @@ CREATE TABLE "Account" (
     "scope" TEXT,
     "id_token" TEXT,
     "session_state" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Account_pkey" PRIMARY KEY ("id")
 );
@@ -22,7 +23,7 @@ CREATE TABLE "Account" (
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
-    "username" TEXT NOT NULL,
+    "username" TEXT,
     "name" TEXT,
     "surname" TEXT,
     "email" TEXT,
@@ -34,6 +35,7 @@ CREATE TABLE "User" (
     "puntuation" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "country" TEXT,
     "phone" INTEGER,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "role" "UserRole" NOT NULL DEFAULT 'USER',
     "isTwoFactorEnabled" BOOLEAN NOT NULL DEFAULT false,
 
@@ -89,7 +91,7 @@ CREATE TABLE "Experience" (
     "city" TEXT NOT NULL,
     "image" TEXT NOT NULL,
     "dificulty" INTEGER NOT NULL,
-    "dateCreated" TIMESTAMP(3) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Experience_pkey" PRIMARY KEY ("id")
 );
@@ -127,7 +129,7 @@ CREATE TABLE "ExperiencesDone" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "experienceId" TEXT NOT NULL,
-    "date" TIMESTAMP(3) NOT NULL,
+    "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "ExperiencesDone_pkey" PRIMARY KEY ("id")
 );

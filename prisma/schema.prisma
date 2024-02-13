@@ -10,18 +10,19 @@ generator client {
 }
 
 model Account {
-  id                String  @id @default(cuid())
+  id                String   @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?  @db.Text
   session_state     String?
+  createdAt         DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -35,7 +36,7 @@ enum UserRole {
 
 model User {
   id                    String                 @id @default(cuid())
-  username              String                 @unique
+  username              String?                @unique
   name                  String?
   surname               String?
   email                 String?                @unique
@@ -47,14 +48,14 @@ model User {
   puntuation            Float                  @default(0)
   country               String?
   phone                 Int?
+  createdAt             DateTime               @default(now())
   role                  UserRole               @default(USER)
   accounts              Account[]
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
   experiencesDone       ExperiencesDone[]
-  experiencesSaved       ExperiencesSaved[]
+  experiencesSaved      ExperiencesSaved[]
 }
-
 
 model VerificationToken {
   id      String   @id @default(cuid())
@@ -92,18 +93,18 @@ model TwoFactorConfirmation {
 }
 
 model Experience {
-  id          String     @id @default(cuid())
-  name        String
-  description String
-  category    Category[]
-  latitude    String
-  longitude   String
-  country     String
-  city        String
-  image       String
-  dificulty   Int
-  dateCreated DateTime
-  experiencesDone ExperiencesDone[]
+  id               String             @id @default(cuid())
+  name             String
+  description      String
+  category         Category[]
+  latitude         String
+  longitude        String
+  country          String
+  city             String
+  image            String
+  dificulty        Int
+  createdAt        DateTime           @default(now())
+  experiencesDone  ExperiencesDone[]
   experiencesSaved ExperiencesSaved[]
 }
 
@@ -124,24 +125,21 @@ model Subcategory {
 }
 
 model ExperiencesSaved {
-  id String @id @default(cuid())
-  userId String
+  id           String   @id @default(cuid())
+  userId       String
   experienceId String
-  date DateTime
+  date         DateTime
 
-  user User @relation(fields: [userId], references: [id],onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   experience Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
-
 }
 
 model ExperiencesDone {
-  id String @id @default(cuid())
-  userId String
+  id           String   @id @default(cuid())
+  userId       String
   experienceId String
-  date DateTime
+  date         DateTime @default(now())
 
-  user User @relation(fields: [userId], references: [id],onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   experience Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
-
-  
 }
