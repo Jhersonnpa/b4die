@@ -39,7 +39,7 @@ const Navbar = () => {
                 href="/"
                 className="hover:text-dark relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-dark after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"
               >
-                Home
+                Inicio
               </Link>
             </li>
             <li>
