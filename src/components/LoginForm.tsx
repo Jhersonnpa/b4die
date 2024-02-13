@@ -10,17 +10,14 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import InstagramIcon from "./socialIcons/InstagramIcon";
-import GoogleIcon from "./socialIcons/GoogleIcon";
-import TwitterIcon from "./socialIcons/TwitterIcon";
-import AppleIcon from "./socialIcons/AppleIcon";
+import Social from "@/components/social";
+
 
 const LoginForm = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -35,7 +32,7 @@ const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full sm:w-3/6 md:w-2/3 p-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full sm:w-3/6 lg:1/2 p-4">
         <h1 className="text-center text-3xl">Inicia sesión</h1>
         <FormField
           control={form.control}
@@ -70,12 +67,7 @@ const LoginForm = () => {
             <span className="">O continua con</span>
             <hr className="flex-grow border-dark dark:border-white"/>
         </div>
-        <div className="w-full flex gap-3 justify-center">
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><InstagramIcon className="size-6" /></Button>
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><GoogleIcon className="size-6" /></Button>
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><TwitterIcon className="size-6 text-white" /></Button>
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><AppleIcon className="size-6" /></Button>
-        </div>
+        <Social />
         <p className="text-pretty text-center">No eres un miembro? <Link className="text-dark dark:text-white dark:hover:text-yellowB4/80 underline transition-all hover:text-yellowB4" href={'/auth/register'}>Regístrate ahora</Link></p>
       </form>
     </Form>

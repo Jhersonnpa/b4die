@@ -11,17 +11,13 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import InstagramIcon from "./socialIcons/InstagramIcon";
-import GoogleIcon from "./socialIcons/GoogleIcon";
-import TwitterIcon from "./socialIcons/TwitterIcon";
-import AppleIcon from "./socialIcons/AppleIcon";
+import Social from "@/components/social";
 
 const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
@@ -56,7 +52,7 @@ const RegisterForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full sm:w-2/3 md:w-3/6  px-4 py-16 h-full">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-between w-full sm:w-2/3 lg:w-1/2  px-4 py-16 h-full">
         <h1 className="text-center text-3xl md:text-4xl">Registro</h1>
         <FormField
           control={form.control}
@@ -137,12 +133,7 @@ const RegisterForm = () => {
             <span className="">O continua con</span>
             <hr className="flex-grow border-dark dark:border-white"/>
         </div>
-        <div className="w-full flex gap-3 justify-center">
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><InstagramIcon className="size-6" /></Button>
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><GoogleIcon className="size-6" /></Button>
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><TwitterIcon className="size-6 text-white" /></Button>
-          <Button type="button" className="bg-darkSecondary hover:bg-dark hover:shadow-xl"><AppleIcon className="size-6" /></Button>
-        </div>
+        <Social />
         <p className="text-pretty text-center">Ya eres miembro? <Link className="text-dark dark:text-white dark:hover:text-yellowB4/80 underline transition-all hover:text-yellowB4" href={'/auth/login'}>Inicia sesión</Link></p>
       </form>
     </Form>
