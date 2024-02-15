@@ -1,4 +1,4 @@
-import * as z from 'zod' 
+import * as z from 'zod'
 
 export const LoginSchema = z.object({
   email: z.string({
@@ -11,30 +11,36 @@ export const LoginSchema = z.object({
   }),
 })
 
+interface RegisterData {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  name: string;
+  surname: string;
+}
+
 export const RegisterSchema = z.object({
-  email: z.string({
-    invalid_type_error: "Must be a string"
-  }).email({
-    message: "Email is required"
-  }),
   username: z.string().min(1, {
-    message: "Name is required",
+    message: "Requerido.",
   }),
-  password: z.string().min(6, {
-    message: "Minimun 6 characters required"
+  email: z.string().email({
+    message: "Formato del correo invalido.",
   }),
-  confirmPassword: z.string().min(6, {
-    message: "Minimun 6 characters required"
+  password: z.string().min(8, {
+    message: "mínimo 8 caracteres.",
+  }).max(16, {
+    message: "máximo 16 caracteres.",
+  }),
+  confirmPassword: z.string().min(8, {
+    message: "mínimo 8 caracteres.",
+  }).max(16, {
+    message: "máximo 16 caracteres.",
   }),
   name: z.string().min(1, {
-    message: "Name is required",
+    message: "Nombre requerido.",
   }),
   surname: z.string().min(1, {
-    message: "Name is required",
+    message: "Apellido requerido",
   }),
-  date: z.date({
-    required_error: "Please select a date and time",
-    invalid_type_error: "That's not a date!",
-  }),
-  image: z.optional(z.string())
 })

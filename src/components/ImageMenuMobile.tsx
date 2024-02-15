@@ -1,13 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-const ImageMenuMobile = () => {
-  const theme = useTheme();
-  
+const ImageMenuMobile: React.FC = () => {
+  const themeProvider = useTheme();
+  const [theme, setTheme] = useState<string | undefined>(); // Ajuste destructuring aquí
+
   useEffect(() => {
-    return
-  }, [theme.theme]);
+    if (themeProvider.theme === "system") {
+      setTheme(themeProvider.systemTheme);
+    } else {
+      setTheme(themeProvider.theme);
+    }
+  }, [themeProvider.systemTheme, themeProvider.theme]);
 
   return (
     <>
@@ -15,7 +20,7 @@ const ImageMenuMobile = () => {
         className="aspect-auto w-40 h-16"
         width={178}
         height={65}
-        src={theme.theme == "dark" ? "/logo-dark.webp" : "/logomobile.webp"}
+        src={theme === "dark" ? "/logo-dark.webp" : "/logomobile.webp"} // Ajuste aquí
         alt="logo B4die"
       />
     </>
