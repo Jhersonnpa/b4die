@@ -18,14 +18,16 @@ export const getUserById = async (id: string) => {
   }
 }
 
-export const getAccountsByUserId = async (userId: string) => {
+export const getUserByUsername = async (username: string) => {
   try {
-    const arrayElements = await db.account.findMany({
-      where: { userId: userId } // Ajusta las columnas según tus necesidades
-    });
-
-    return arrayElements;
+    const user = await db.user.findUnique({
+      where: {
+        username
+      }
+    })
+    return user
   } catch (error) {
-    return { error: error };
+    return { error: error }
   }
-};
+}
+

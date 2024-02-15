@@ -26,6 +26,7 @@ export default {
     twitter({
       clientId: process.env.TWITTER_CLIENT_ID,
       clientSecret: process.env.TWITTER_CLIENT_SECRET,
+      allowDangerousEmailAccountLinking: true
     }),
     // Credentials({
     //   async authorize(credentials) {
