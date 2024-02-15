@@ -24,8 +24,8 @@ export default {
       clientSecret: process.env.INSTAGRAM_CLIENT_SECRET
     }),
     twitter({
-      clientId: process.env.TWITTER_ID,
-      clientSecret: process.env.TWITTER_SECRET,
+      clientId: process.env.TWITTER_CLIENT_ID,
+      clientSecret: process.env.TWITTER_CLIENT_SECRET,
     }),
     // Credentials({
     //   async authorize(credentials) {
