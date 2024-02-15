@@ -1,13 +1,145 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// prisma/schema.prisma
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
 
 generator client {
   provider = "prisma-client-js"
 }
 
-// prisma/schema.prisma
-datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+model Account {
+  id                String   @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  createdAt         DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id                    String                 @id @default(cuid())
+  username              String?                @unique
+  name                  String?
+  surname               String?
+  email                 String?                @unique
+  emailVerified         DateTime?
+  image                 String?
+  typeImg               String?
+  password              String?
+  birthDate             DateTime?
+  puntuation            Float                  @default(0)
+  country               String?
+  phone                 Int?
+  createdAt             DateTime               @default(now())
+  role                  UserRole               @default(USER)
+  accounts              Account[]
+  isTwoFactorEnabled    Boolean                @default(false)
+  twoFactorConfirmation TwoFactorConfirmation?
+  experiencesDone       ExperiencesDone[]
+  experiencesSaved      ExperiencesSaved[]
+}
+
+model VerificationToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model PasswordResetToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model TwoFactorToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model TwoFactorConfirmation {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId])
+}
+
+model Experience {
+  id               String             @id @default(cuid())
+  name             String
+  description      String
+  category         Category[]
+  latitude         String
+  longitude        String
+  country          String
+  city             String
+  image            String
+  dificulty        Int
+  createdAt        DateTime           @default(now())
+  experiencesDone  ExperiencesDone[]
+  experiencesSaved ExperiencesSaved[]
+}
+
+model Category {
+  id           String        @id @default(cuid())
+  experienceId String
+  name         String
+  subcategory  Subcategory[]
+  experience   Experience    @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+}
+
+model Subcategory {
+  id         String @id @default(cuid())
+  categoryId String
+  name       String
+
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+}
+
+model ExperiencesSaved {
+  id           String   @id @default(cuid())
+  userId       String
+  experienceId String
+  date         DateTime
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  experience Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+}
+
+model ExperiencesDone {
+  id           String   @id @default(cuid())
+  userId       String
+  experienceId String
+  date         DateTime @default(now())
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  experience Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
 }
