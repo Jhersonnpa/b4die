@@ -18,7 +18,7 @@ const Navbar = () => {
           <MenuMobile />
         </div>
 
-        {user.emailVerified ? <></> : <AlertEditProfile />}
+        {user?.emailVerified ? <div></div> : <AlertEditProfile />}
 
         <div className="h-full flex items-center justify-center gap-2">
           <CommandSearch />
