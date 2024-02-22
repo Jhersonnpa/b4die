@@ -10,15 +10,15 @@ import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 const Navbar = () => {
   const user = useCurrentUser();
-
+  
   return (
     <header className="w-full flex-col">
       <div className="w-full h-[4vh] bg-yellowB4 text-dark flex items-center justify-between md:justify-end space-x-4 px-2">
         <div className="h-full flex items-center justify-center md:hidden">
           <MenuMobile />
         </div>
-
-        {user?.emailVerified ? <div></div> : <AlertEditProfile />}
+    
+        {user && !user.emailVerified ? (<AlertEditProfile />): (<></>)}
 
         <div className="h-full flex items-center justify-center gap-2">
           <CommandSearch />
