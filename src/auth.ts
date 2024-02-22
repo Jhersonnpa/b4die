@@ -3,7 +3,7 @@ import authConfig from "@/auth.config"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { db } from "@/lib/db"
 import { getUserByEmail, getUserById, getUserByUsername } from "@/data/user"
-import { deleteAllButLastAccountByUserId, deleteFirstAccountByUserId, getAccountsByProvider, getAccountsByUserId } from "./data/account"
+import { deleteAllButLastAccountByUserId, deleteFirstAccountByUserId, getAccountsByProvider, getAccountsByUserId } from "@/data/account"
 import { User, UserRole } from "@prisma/client"
 
 export const {
@@ -54,6 +54,7 @@ export const {
 
       },
       async session({ token, session }) {
+        console.log(token)
         if (token.sub && session.user) {
           session.user.id = token.sub
         }
