@@ -26,7 +26,6 @@ import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 export function DropdownProfile() {
   const user = useCurrentUser();
-  console.log(user)
   if (user) {
     return (
       <DropdownMenu>
