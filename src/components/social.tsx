@@ -1,9 +1,9 @@
 "use client"
 
-import InstagramIcon from "@/components/socialIcons/InstagramIcon";
+// import InstagramIcon from "@/components/socialIcons/InstagramIcon";
 import GoogleIcon from "@/components/socialIcons/GoogleIcon";
 import TwitterIcon from "@/components/socialIcons/TwitterIcon";
-import AppleIcon from "@/components/socialIcons/AppleIcon";
+// import AppleIcon from "@/components/socialIcons/AppleIcon";
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
