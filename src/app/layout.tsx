@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { GlobalStateProvider } from "@/GlobalStateContext";
 
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
@@ -23,23 +24,25 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth()
+  const session = await auth();
   return (
-    <SessionProvider session={session}>
-      <html lang="en">
-        <body
-          className={`dark:bg-[#0D1117] w-full min-h-screen ${roboto.className}`}
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+    <GlobalStateProvider>
+      <SessionProvider session={session}>
+        <html lang="en">
+          <body
+            className={`dark:bg-[#0D1117] w-full min-h-screen ${roboto.className}`}
           >
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </SessionProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </body>
+        </html>
+      </SessionProvider>
+    </GlobalStateProvider>
   );
 }

@@ -32,7 +32,7 @@ export function DropdownProfile() {
         <DropdownMenuTrigger asChild>
           <Button variant="custom" size="custom">
             <Avatar className="size-6 text-white">
-              <AvatarImage src={`${user.image}`} alt={`Avatar de ${user.name}`}/>
+              <AvatarImage src={user.image} alt={`Avatar de ${user.name}`}/>
               <AvatarFallback>B4</AvatarFallback>
             </Avatar>
           </Button>

@@ -42,7 +42,7 @@ model User {
   email                 String?                @unique
   emailVerified         DateTime?
   image                 String?
-  typeImg               String?
+  typeImg               String                 @default("https://github.com/shadcn.png")
   password              String?
   birthDate             DateTime?
   puntuation            Float                  @default(0)

@@ -16,13 +16,13 @@ const Social = () => {
   };
   return (
     <div className="w-full flex gap-3 justify-center">
-      <Button
+      {/* <Button
         onClick={() => onClick("instagram")}
         type="button"
         className="bg-darkSecondary hover:bg-dark hover:shadow-xl"
       >
         <InstagramIcon className="size-6" />
-      </Button>
+      </Button> */}
       <Button
         onClick={() => onClick("google")}
         type="button"
@@ -37,13 +37,13 @@ const Social = () => {
       >
         <TwitterIcon className="size-6 text-white" />
       </Button>
-      <Button
+      {/* <Button
         onClick={() => onClick("apple")}
         type="button"
         className="bg-darkSecondary hover:bg-dark hover:shadow-xl"
       >
         <AppleIcon className="size-6" />
-      </Button>
+      </Button> */}
     </div>
   );
 };

@@ -64,7 +64,6 @@ export const {
       if (!existingUser) return false;
     },
     async session({ token, session }) {
-
       if (session.user) {
         if (token.sub) {
           session.user.id = token.sub;
@@ -96,17 +95,8 @@ export const {
         if (token.role) {
           session.user.role = token.role as UserRole;
         }
-        if (token.accounts) {
-          session.user.accounts = token.accounts as [];
-        }
         if (token.isTwoFactorEnabled) {
           session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as Boolean;
-        }
-        if (token.experiencesDone) {
-          session.user.experiencesDone = token.experiencesDone as [];
-        }
-        if (token.experiencesSaved) {
-          session.user.experiencesSaved = token.experiencesSaved as [];
         }
       }
 

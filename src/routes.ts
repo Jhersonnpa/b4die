@@ -10,6 +10,16 @@ export const publicRoutes = [
 ]
 
 /**
+ * An array of routes that are accessible to the protected
+ * These routes do not require authentication
+ * @type {string[]}
+ */
+
+export const protectedRoutes = [
+  "/dashboard",
+]
+
+/**
  * An array of routes that are used for authentication
  * These routes will redirect logged in users to /settings
  * @type {string[]}
@@ -38,3 +48,4 @@ export const apiAuthPrefix = "/api/auth"
 
 export const DEFAULT_LOGIN_REDIRECT = `/`
 export const DEFAULT_LOGOUT_REDIRECT = `/auth/login`
+export const DINAMYC_ROUTE = `/[user]`

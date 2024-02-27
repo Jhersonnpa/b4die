@@ -29,7 +29,7 @@ CREATE TABLE "User" (
     "email" TEXT,
     "emailVerified" TIMESTAMP(3),
     "image" TEXT,
-    "typeImg" TEXT,
+    "typeImg" TEXT NOT NULL DEFAULT 'https://github.com/shadcn.png',
     "password" TEXT,
     "birthDate" TIMESTAMP(3),
     "puntuation" DOUBLE PRECISION NOT NULL DEFAULT 0,
